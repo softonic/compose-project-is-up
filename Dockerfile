@@ -1,4 +1,4 @@
-FROM docker:17.10.0-ce-dind
+FROM docker:18.05.0-ce-dind
 
 ARG version="0.1.0-dev"
 ARG build_date="unknown"
@@ -6,7 +6,7 @@ ARG commit_hash="unknown"
 ARG vcs_url="unknown"
 ARG vcs_branch="unknown"
 
-ENV DOCKER_COMPOSE_VERSION 1.17.1
+ENV DOCKER_COMPOSE_VERSION 1.21.2
 
 LABEL org.label-schema.vendor="softonic" \
     org.label-schema.name="compose-project-running" \
