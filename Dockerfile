@@ -1,12 +1,10 @@
-FROM docker:18.05.0-ce-dind
+FROM docker/compose:1.25.3
 
 ARG version="0.1.0-dev"
 ARG build_date="unknown"
 ARG commit_hash="unknown"
 ARG vcs_url="unknown"
 ARG vcs_branch="unknown"
-
-ENV DOCKER_COMPOSE_VERSION 1.21.2
 
 LABEL org.label-schema.vendor="softonic" \
     org.label-schema.name="compose-project-running" \
@@ -30,8 +28,6 @@ LABEL org.label-schema.vendor="softonic" \
         EXPECTED_CONTAINERS=Number of expected running containers \
         COMPOSE_FILE=Compose file to read. Defaults to none \
         VERBOSE=Output container name if activated (1 for active, 0 for disabled. Defaults to 0)"
-
-RUN apk add --no-cache py-pip && pip install "docker-compose==${DOCKER_COMPOSE_VERSION}"
 
 COPY ./get-compose-running.sh /get-compose-running.sh
 
